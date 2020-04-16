@@ -1,0 +1,23 @@
+Concert {
+artist[]: id, name, youtubeid[], genreId
+venueId
+venueName
+cityId
+date
+time
+showtime
+doortime
+priceMin
+priceMax
+detailurl
+ticketurl
+age
+status (created, approved, deleted)
+boost[]: submittedBy submittedWhen, username
+history[]: submittedBy submittedWhen affirmedBy affirmedWhen deniedBy deniedWhen (fields changed)
+
+Venue: id, name, address, mapUrl, capacity
+
+City: id, name
+
+User: id, name, score]=[]

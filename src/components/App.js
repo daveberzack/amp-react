@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-import "./App.css";
 
 import Calendar from "./Calendar.js"
 import Home from "./Home.js"
-import Footer from "./Footer.js"
 import Contact from "./Contact.js"
 import About from "./About.js"
+import "./App.css";
+import 'bootstrap/dist/css/bootstrap.css';
 
 const App = () => {
 
@@ -20,7 +19,6 @@ const App = () => {
           <Route path="/about" exact><About /></Route>
           <Route path="/contact" exact><Contact /></Route>
         </Switch>
-        <Footer />
       </Router>
 
 

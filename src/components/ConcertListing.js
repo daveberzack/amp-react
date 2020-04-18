@@ -1,14 +1,42 @@
 import React from 'react';
 
+import { Button, Card } from 'react-bootstrap';
+import IconPencil from './icons/IconPencil.js'
 import "./ConcertListing.css";
 
-const ConcertListing = ({artists, venue, date, time, showTime, doorTime, priceMin, priceMax, detailUrl, ticketUrl, age}) => {
+const ConcertListing = ({
+  concert: {
+    date,
+    time,
+    venueName,
+    minPrice,
+    maxPrice,
+    detailUrl,
+    ticketUrl,
+    headliners,
+    openers
+  },
+  onPreview
+}) => {
 
   return (
-      <li>
-        {date}<br/>
-        { artists.map( artist => <p>{artist}</p> ) }
-      </li>
+      <Card>
+        {date} - {time} @ {venueName}<br/>
+        {minPrice} - {maxPrice}<br/>
+        <a href="">Tickets</a>
+        { headliners.map( artist => {
+          return <p><b>
+            <a onClick={() => onPreview(artist)}>{artist}</a>
+          </b></p>;
+        } ) }
+
+        { openers.map( artist => {
+          return <p>
+            <a onClick={() => onPreview(artist)}>{artist}</a>
+          </p>;
+        } ) }
+
+      </Card>
   );
 
 }

@@ -1,33 +1,22 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 
 import "./ConcertList.css";
 import ConcertListing from "./ConcertListing.js"
 
-const ConcertList = ({concerts}) => {
+const ConcertList = ({concerts, onPreview}) => {
 
   if (concerts==null || concerts.length<1) return (
     <div id="message">No Concerts</div>
   )
   else return (
+    <Container className="themed-container" fluid="xl">
     <ul id="concert-list">{
         concerts.map( concert =>{
-          return <ConcertListing
-            key={concert.id}
-            artists={concert.artists}
-            venue={concert.venue}
-            date={concert.date}
-            time={concert.time}
-            showtime={concert.showTime}
-            doortime={concert.doorTime}
-            priceMin={concert.priceMin}
-            priceMax={concert.priceMax}
-            detailurl={concert.detailUrl}
-            ticketurl={concert.ticketUrl}
-            age={concert.age}
-          />
-          //return <li key={concert.id}>{concert.name}</li>
+          return <ConcertListing concert={concert} onPreview={onPreview} />
         })
     }</ul>
+    </Container>
   );
 
 }
